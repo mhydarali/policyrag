@@ -74,13 +74,25 @@ The mock corpus includes:
 
 The AI assistant policy includes a labeled prompt-injection test sentence as prohibited malicious content. The RAG prompt tells the model to treat retrieved text as untrusted data, not instructions.
 
-## Setup
+## Quickstart
 
-From the project root:
+Clone the repository and enter the project folder:
+
+```bash
+git clone https://github.com/mhydarali/policyrag.git
+cd policyrag
+```
+
+Create and activate a virtual environment:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
@@ -100,9 +112,7 @@ qwen3:0.6b
 llama3.2:1b
 ```
 
-## Run Locally
-
-Regenerate the PDFs:
+Generate the mock policy PDFs:
 
 ```bash
 python scripts/create_mock_pdfs.py
@@ -120,7 +130,11 @@ Run the Streamlit app:
 streamlit run app.py
 ```
 
-Then open the local URL printed by Streamlit.
+Then open the local URL printed by Streamlit, usually:
+
+```text
+http://localhost:8501
+```
 
 Strict Retrieval works without Ollama. RAG Synthesis requires Ollama to be running with at least one supported local model.
 
